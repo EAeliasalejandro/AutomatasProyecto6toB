@@ -260,7 +260,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-JOptionPane.showMessageDialog(null, "Hola mundo 2");
+JOptionPane.showMessageDialog(null, "Hola mundo 3");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void mItemMostrarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemMostrarTablaActionPerformed
