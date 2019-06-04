@@ -9,6 +9,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
     public static int contadorLexema;
     private Ventana v;
     ArrayList<Integer> arregloToken = new ArrayList<Integer>();
+    ArrayList<String> arregloLexemas = new ArrayList<String>();
 
 // ArrayList<Lexema> lexemas = null;
     //Para el getToken
@@ -18,8 +19,9 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
     //int idz = 0;
     //int simbolo = 0;
 
-    public AnalisisSintactico(ArrayList<Integer> arregloToken, Ventana v) {
+    public AnalisisSintactico(ArrayList<String> arregloLexemas,ArrayList<Integer> arregloToken, Ventana v) {
         this.arregloToken = arregloToken;
+        this.arregloLexemas = arregloLexemas;
 
         this.v = v;
     }
@@ -46,6 +48,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
         bloque();
         if (token != 160) {
             v.getTxtaErrores().append("Error se esperaba un punto Final\n");
+            return;
         } else {
             JOptionPane.showMessageDialog(null, "Compile success");
         }
@@ -59,14 +62,25 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
     }
 
     public void A() {
+    if (token == 400){     
         if (token == 400) {
+            v.getTxtaLexema().append(arregloLexemas.get(idx)+" ");//aqui me quede 
             token = getToken();
-            B();
-        } else {
+            } else {
             v.getTxtaErrores().append("Error Const\n");
             return;
         }
+            B();
+            if (token == 180) {
+                
+                token = getToken();
+            } else {
+                v.getTxtaErrores().append("Error ;\n");
+                return;
+            }
     }
+    return;
+  }
 
     public void B() {
         if (token != 10) {
@@ -75,12 +89,12 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
         }
         token = getToken();
         if (token != 200) {
-            v.getTxtaErrores().append("Error ==\n");
+            v.getTxtaErrores().append("Error =\n");
             return;
         }
         token = getToken();
         if (token != 20) {
-            v.getTxtaErrores().append("Error id\n");
+            v.getTxtaErrores().append("Error num\n");
             return;
         }
         token = getToken();
@@ -92,7 +106,6 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
             token = getToken();
             B();
         } else {
-            v.getTxtaErrores().append("Error ,\n");
             return;
         }
     }
@@ -178,6 +191,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
             }
             E();
         }
+        return;
     }
 
     private void condicion() {

@@ -245,9 +245,11 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_mItemLexicoActionPerformed
 
     private void mitemSintacticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitemSintacticoActionPerformed
+        txtaLexema.setText("");
         txtaErrores.setText("");
-        arregloToken=tablaSimb.clonarArreglo(arregloToken);
-        anaSinta = new AnalisisSintactico(arregloToken, this);
+        arregloToken=tablaSimb.clonarArregloToken(arregloToken);
+        arregloLexemas=tablaSimb.clonarArregloLexema(arregloLexemas);//tengo que arreglar asi
+        anaSinta = new AnalisisSintactico(arregloLexemas,arregloToken, this);
         anaSinta.programa();
     }//GEN-LAST:event_mitemSintacticoActionPerformed
 

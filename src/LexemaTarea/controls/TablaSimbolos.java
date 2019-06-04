@@ -11,7 +11,7 @@ public class TablaSimbolos {
     // AnalisisLexico anaLex = new AnalisisLexico();
     ArrayList<Integer> arregloToken = new ArrayList<Integer>();
     ArrayList<String> arregloLexemas = new ArrayList<String>();
-    
+
     //CONSTRUCTORES
     public TablaSimbolos() {
 
@@ -22,11 +22,16 @@ public class TablaSimbolos {
     }
 
     //METODOS
-    public ArrayList<Integer> clonarArreglo(ArrayList<Integer> arregloToken1){
+    public ArrayList<Integer> clonarArregloToken(ArrayList<Integer> arregloToken1) {
         arregloToken1 = (ArrayList<Integer>) arregloToken.clone();
         return arregloToken1;
     }
-    
+
+    public ArrayList<String> clonarArregloLexema(ArrayList<String> arregloLexema1) {
+        arregloLexema1 = (ArrayList<String>) arregloLexemas.clone();
+        return arregloLexema1;
+    }
+
     public void llenarTablaSintactica() {
         VentanaSimbolos vs = new VentanaSimbolos();
         String matris[][] = new String[arregloLexemas.size()][2];
@@ -239,8 +244,8 @@ public class TablaSimbolos {
 
         return resultado;
     }
-    
-    public void LimpiarArreglos(){
+
+    public void LimpiarArreglos() {
         arregloToken.clear();
         arregloToken.clear();
     }
