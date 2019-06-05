@@ -4,6 +4,7 @@ import LexemaTarea.view.Ventana;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+
 public class AnalisisSintactico {//Solamente estan los tokens y no escribe los lexemas
 
     public static int contadorLexema;
@@ -47,14 +48,6 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
         return lex;
     }
 
-    /*private String getSimbolo() {
-        String tok = "";
-        if (idz < arregloLexemas.size()) {
-            tok = arregloLexemas.get(idz);
-            idz++;
-        }
-        return tok;
-    }*/
     public void programa() {
         token = getToken();
         simbolo = getLexe();
@@ -64,6 +57,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
             v.getTxtaErrores().append("Error se esperaba un punto Final\n");
             return;
         } else {
+            v.getTxtaErrores().setText("");
             JOptionPane.showMessageDialog(null, "Compile success");
         }
     }
@@ -135,8 +129,8 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
         }
     }
 
-    public void C() {
-        if (token == 400) {
+    public void C() {//aqui
+        if (token == 410) {
             if (token == 410) {
                 token = getToken();
                 simbolo = getLexe();
@@ -207,7 +201,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
                 v.getTxtaErrores().append("Error ;\n");
                 return;
             }
-            bloque();
+            bloque();//regresa
             if (token == 180) {
                 token = getToken();
                 simbolo = getLexe();
@@ -307,7 +301,7 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
                 }
                 token = getToken();
                 simbolo = getLexe();
-                v.getTxtaLexema().append(simbolo + " ");
+                v.getTxtaLexema().append(simbolo + " ");//aqui acaba
                 break;
             case 470:
                 token = getToken();
@@ -383,13 +377,15 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
 
     public void cproptemp() {
         if (token == 180) {
-            token = getToken();
-            simbolo = getLexe();
-            v.getTxtaLexema().append(simbolo + " ");
-            cicloprop();
-        } else {
-            v.getTxtaErrores().append("Se esperaba ;\n");
-            return;
+            if (token == 180) {
+                token = getToken();
+                simbolo = getLexe();
+                v.getTxtaLexema().append(simbolo + " ");
+                cicloprop();
+            } else {
+                v.getTxtaErrores().append("Se esperaba ;\n");
+                return;
+            }
         }
     }
 
@@ -413,7 +409,6 @@ public class AnalisisSintactico {//Solamente estan los tokens y no escribe los l
             v.getTxtaErrores().append("Error do o dto\n");
             return;
         }
-
     }
 
     public void expre() {
