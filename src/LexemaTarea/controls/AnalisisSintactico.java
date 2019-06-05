@@ -4,7 +4,6 @@ import LexemaTarea.view.Ventana;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class AnalisisSintactico {//Solamente estan los tokens y no escribe los lexemas
 
     public static int contadorLexema;

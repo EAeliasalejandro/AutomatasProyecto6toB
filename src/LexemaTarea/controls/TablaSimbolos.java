@@ -59,7 +59,7 @@ public class TablaSimbolos {
         String[] PalabrasSeparadas = lexemas.split("\n");
 
         for (int i = 0; i < PalabrasSeparadas.length; i++) {
-            String palabra = PalabrasSeparadas[i];
+            String palabra = PalabrasSeparadas[i].replace(" ", "");
 
             if (isNumeric(palabra)) {
                 arregloLexemas.add(palabra);

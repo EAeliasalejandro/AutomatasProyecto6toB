@@ -8,7 +8,7 @@ public class AnalisisLexico {
     Ventana v;
     int contadorLineas = 1;
     AnalisisSintactico anaSint;
-    
+
     public AnalisisLexico(Ventana v) {
         this.v = v;
     }
@@ -29,11 +29,13 @@ public class AnalisisLexico {
                     lexPal += c;
                     i++;
                     if (isFin(i, contenido.length())) {
+                        lexPal = lexPal.replace(" ", "");
                         arreglo.add(lexPal);
                         continue elFor1;
                     }
                     c = contenido.charAt(i);
                 }
+                lexPal = lexPal.replace(" ", "");
                 lexPal = lexPal + "\n";
                 arreglo.add(lexPal);
                 lexPal = "";
@@ -46,11 +48,13 @@ public class AnalisisLexico {
                     lexPal += c;
                     i++;
                     if (isFin(i, contenido.length())) {
+                        lexPal = lexPal.replace(" ", "");
                         arreglo.add(lexPal);
                         continue elFor1;
                     }
                     c = contenido.charAt(i);
                 }
+                lexPal = lexPal.replace(" ", "");
                 lexPal = lexPal + "\n";
                 arreglo.add(lexPal);
                 lexPal = "";
@@ -150,7 +154,7 @@ public class AnalisisLexico {
                         arreglo.add(lexPal);
                     }
                     break;
-                    
+
                 default:
                     v.getTxtaErrores().append("El caracter: " + c + " no es valido, error en la linea: " + contadorLineas + "\n");
             }
