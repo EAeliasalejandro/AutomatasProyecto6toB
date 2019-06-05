@@ -63,6 +63,7 @@ public class AnalisisLexico {
                     contadorLineas += 1;
                     break;
                 case '-':
+                case '/':
                 case '*':
                 case '(':
                 case ')':
@@ -93,10 +94,10 @@ public class AnalisisLexico {
 
                 case '<':
                     i++;
-                    if (isFin(i, contenido.length())) {
+                    /*if (isFin(i, contenido.length())) {
                         arreglo.add(lexPal);
                         continue elFor1;
-                    }
+                    }*/
                     c = contenido.charAt(i);
                     if (c == '=') {
                         lexPal = "<=\n";
@@ -115,7 +116,6 @@ public class AnalisisLexico {
                         lexPal = ">=\n";
                         arreglo.add(lexPal);
                     } else {
-
                         lexPal = ">\n" + c;
                         arreglo.add(lexPal);
                     }
@@ -150,7 +150,7 @@ public class AnalisisLexico {
                         arreglo.add(lexPal);
                     }
                     break;
-
+                    
                 default:
                     v.getTxtaErrores().append("El caracter: " + c + " no es valido, error en la linea: " + contadorLineas + "\n");
             }

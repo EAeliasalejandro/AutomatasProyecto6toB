@@ -134,7 +134,7 @@ public class TablaSimbolos {
                     arregloToken.add(340);
                     break;
                 case "<=":
-                    arregloLexemas.add(lexemas);
+                    arregloLexemas.add(palabra);
                     arregloToken.add(320);
                     break;
                 case "==":
